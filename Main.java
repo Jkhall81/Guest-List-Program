@@ -21,6 +21,26 @@ public class Main {
                     System.out.println(guests[i]);
                 }
             }
+            else if (option == 2) {
+                for (int i = 0; i < guests.length; i++) {
+                    if (guests[i] == null) {
+                    System.out.print("Name: ");
+                    String name = scanner.next();
+                    guests[i] = name;
+                    break;
+                } 
+            }
+        }
+            else if (option == 3) {
+                System.out.print("Name: ");
+                String name = scanner.next();
+                for (int i = 0; i < guests.length; i++) {
+                    if (guests[i].equals(name)) {
+                        guests[i] = null;
+                        break;
+                    }
+                }
+            }
             else if (option == 4) {
                 break;
             }
