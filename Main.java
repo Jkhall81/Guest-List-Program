@@ -6,6 +6,12 @@ public class Main {
         String[] guests = new String[10];
         Scanner scanner = new Scanner(System.in);
 
+        guests[0] = "Raza";
+        guests[1] = "Kary";
+        guests[2] = "Andrea";
+        guests[3] = "Angelica";
+        guests[4] = "Sarah";
+
         do {
             System.out.println();
             System.out.println("1 - Display All Guests");
@@ -18,7 +24,7 @@ public class Main {
 
             if (option == 1) {
                 for (int i = 0; i < guests.length; i++) {
-                    System.out.println(guests[i]);
+                    System.out.println((guests[i] != null) ? guests[i] : "--"); 
                 }
             }
             else if (option == 2) {
