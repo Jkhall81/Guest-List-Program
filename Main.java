@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        String[] guests = new String[10];
         Scanner scanner = new Scanner(System.in);
+        String[] guests = new String[10];
 
         guests[0] = "Raza";
         guests[1] = "Kary";
@@ -15,13 +15,7 @@ public class Main {
         do {
             displayGuests(guests);
 
-            System.out.println("________________________________\n\n - Menu -\n");
-            System.out.println("1 - Add Guest");
-            System.out.println("2 - Remove Guest");
-            System.out.println("3 - Exit");
-            System.out.print("Option: ");
-            int option = scanner.nextInt();
-            System.out.println();
+            int option = displayMenu(scanner);
 
             if (option == 1) {
                 for (int i = 0; i < guests.length; i++) {
@@ -55,5 +49,15 @@ public class Main {
             for (int i = 0; i < guestList.length; i++) {
                 System.out.println((guestList[i] != null) ? guestList[i] : "--"); 
             }
+    }
+
+    public static int displayMenu(Scanner scanner) {
+
+            System.out.println("________________________________\n\n - Menu -\n");
+            System.out.println("1 - Add Guest");
+            System.out.println("2 - Remove Guest");
+            System.out.println("3 - Exit");
+            System.out.print("Option: ");
+            return scanner.nextInt();
     }
 }
