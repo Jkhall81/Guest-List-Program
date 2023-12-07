@@ -25,9 +25,10 @@ public class Main {
                     guests[i] = name;
                     break;
                 } 
-            }
+            }   
         }
             else if (option == 2) {
+                String[] temp = new String[guests.length];
                 System.out.print("Name: ");
                 String name = scanner.next();
                 for (int i = 0; i < guests.length; i++) {
@@ -36,6 +37,14 @@ public class Main {
                         break;
                     }
                 }
+                int ti = 0;
+                for (int i = 0; i < guests.length; i++) {
+                    if (guests[i] != null) {
+                        temp[ti] = guests[i];
+                        ti++;
+                    }
+                }
+                guests = temp;
             }
             else if (option == 3) {
                 break;
@@ -47,7 +56,9 @@ public class Main {
     public static void displayGuests(String[] guestList) {
           System.out.println("________________________________\n\n - Guests -\n");
             for (int i = 0; i < guestList.length; i++) {
-                System.out.println((guestList[i] != null) ? guestList[i] : "--"); 
+                if (guestList[i] != null) {
+                System.out.println((i + 1)+"." + " " +  guestList[i]);
+                }
             }
     }
 
