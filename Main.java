@@ -13,21 +13,17 @@ public class Main {
         guests[4] = "Sarah";
 
         do {
-            System.out.println();
-            System.out.println("1 - Display All Guests");
-            System.out.println("2 - Add Guest");
-            System.out.println("3 - Remove Guest");
-            System.out.println("4 - Exit");
+            displayGuests(guests);
+
+            System.out.println("________________________________\n\n - Menu -\n");
+            System.out.println("1 - Add Guest");
+            System.out.println("2 - Remove Guest");
+            System.out.println("3 - Exit");
             System.out.print("Option: ");
             int option = scanner.nextInt();
             System.out.println();
 
             if (option == 1) {
-                for (int i = 0; i < guests.length; i++) {
-                    System.out.println((guests[i] != null) ? guests[i] : "--"); 
-                }
-            }
-            else if (option == 2) {
                 for (int i = 0; i < guests.length; i++) {
                     if (guests[i] == null) {
                     System.out.print("Name: ");
@@ -37,7 +33,7 @@ public class Main {
                 } 
             }
         }
-            else if (option == 3) {
+            else if (option == 2) {
                 System.out.print("Name: ");
                 String name = scanner.next();
                 for (int i = 0; i < guests.length; i++) {
@@ -47,10 +43,17 @@ public class Main {
                     }
                 }
             }
-            else if (option == 4) {
+            else if (option == 3) {
                 break;
             }
         } while (true);
         System.out.println("Exiting...");
+    }
+
+    public static void displayGuests(String[] guestList) {
+          System.out.println("________________________________\n\n - Guests -\n");
+            for (int i = 0; i < guestList.length; i++) {
+                System.out.println((guestList[i] != null) ? guestList[i] : "--"); 
+            }
     }
 }
