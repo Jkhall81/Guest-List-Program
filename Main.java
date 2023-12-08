@@ -65,10 +65,13 @@ public class Main {
 
     public static String[] removeGuest(String[] guestList, Scanner scanner) {
         String[] temp = new String[guestList.length];
-                System.out.print("Name: ");
-                String name = scanner.next();
+                System.out.print("Number: ");
+                int number = scanner.nextInt();
+                if (number < 1 || number > 10) {
+                    System.out.println("Error: There is no guest with that number.");
+                }
                 for (int i = 0; i < guestList.length; i++) {
-                    if (guestList[i] != null && guestList[i].equals(name)) {
+                    if (guestList[i] != null && (i + 1) == number) {
                         guestList[i] = null;
                         break;
                     }
