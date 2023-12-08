@@ -14,7 +14,7 @@ public class Main {
             int option = displayMenu(scanner);
 
             if (option == 1) {
-               addGuest(guests, scanner);
+               guests = addGuest(guests, scanner);
             }   
         
             else if (option == 2) {
@@ -60,15 +60,32 @@ public class Main {
             return option;
     }
 
-    public static void addGuest(String[] guestList, Scanner scanner) {
+    public static String[] addGuest(String[] guestList, Scanner scanner) {
          for (int i = 0; i < guestList.length; i++) {
                     if (guestList[i] == null) {
                     System.out.print("Name: ");
                     String name = scanner.nextLine();
-                    guestList[i] = name;
+                    System.out.print("Would you like to put the guest in a particular position? (Y/N): ");
+                    String response = scanner.next();
+                    if (response.equals("N")) {
+                        guestList[i] = name;
+                    } else {
+                        System.out.println("Select a position: ");
+                        int position = scanner.nextInt();
+                        scanner.nextLine();
+                        if (position >= 1 && position <= guestList.length) {
+                            for (int j = guestList.length - 1; j > position - 1; j--) {
+                                guestList[j] = guestList[j - 1];
+                            }
+                       guestList[position -1] = name;
+                    } else {
+                        System.out.println("Invalid position.");
+                        }
+                    }
                     break;
                 }
-         } 
+         }
+         return guestList; 
     }
 
     public static String[] removeGuest(String[] guestList, Scanner scanner) {
